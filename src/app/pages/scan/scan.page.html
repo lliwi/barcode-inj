@@ -1,0 +1,37 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-button (click)="toggleMenu()">
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    -->
+    <ion-menu-button color="primary"></ion-menu-button>
+            
+    </ion-buttons>
+    <ion-title>scan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Format</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="format"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label fixed>Number</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="num"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label fixed>Name</ion-label>
+    <ion-input type="text" placeholder="Enter a name" value="" [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-button color="primary" (click)="add()">add</ion-button>  
+  </ion-list>
+  
+</ion-content>
+<ion-footer no-shadow>
+	<ion-toolbar position="bottom">
+		<ion-button expand="block" color="primary" (click)="scan()">scan</ion-button>
+	</ion-toolbar>
+</ion-footer>

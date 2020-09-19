@@ -1,0 +1,59 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text ="Atras" color="primary" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title > brute </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+<div style='text-align: center;'>
+  <!-- insert your custom barcode setting your data in the GET parameter "data" -->
+  <img class="code" alt='Barcode Generator TEC-IT'
+       src='https://barcode.tec-it.com/barcode.ashx?data="{{rangeCurrentValue || codevalue}}"&code={{codeformat}}&dpi=96&dataseparator='/>
+       <p></p>
+</div>
+
+</ion-content>
+  <!-- Control for number barcodes-->
+<ion-footer class="ion-padding" class="ion-no-border" *ngIf="codetype == 'number'">
+
+  <ion-item>
+    <ion-label>Min / Max range</ion-label>
+    <ion-input type="number" step="10" value="10" [(ngModel)]="rangeMM" ></ion-input>
+    <button item-right class="ion-padding" (click)="btnRdown()">-</button>
+    <button item-right class="ion-padding" (click)="btnRup()">+</button>
+  </ion-item>
+  <ion-item>
+    <ion-label>Step</ion-label>
+    <ion-input type="number" [(ngModel)]="step"></ion-input>
+    <button item-right class="ion-padding" (click)="btnSdown()">-</button>
+    <button item-right class="ion-padding" (click)="btnSup()">+</button>
+    
+  </ion-item>
+   <ion-item>
+    <ion-range  min={{rangemin}} max={{rangemax}}  step={{step}}  color="primary" [(ngModel)]="rangeCurrentValue">
+      <ion-label slot="start">{{rangemin}}</ion-label>
+      <ion-label slot="end">{{rangemax}}</ion-label>
+    </ion-range>
+    <ion-badge>{{rangeCurrentValue}}</ion-badge>
+    <ion-button expand="block"  (click)="play()" >
+      <ion-icon name="play"></ion-icon>
+    </ion-button>
+    <ion-button expand="block" (click)="stoppressed()" >
+      <ion-icon name="square"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+
+</ion-footer>
+<!-- Control for string barcodes-->
+<ion-footer class="ion-padding" class="ion-no-border" *ngIf="codetype == 'string'">
+  <ion-item>
+    <ion-label>Code value</ion-label>
+    <ion-input value="{{codevalue}}" [(ngModel)]="codevalue"></ion-input>
+  </ion-item>
+</ion-footer>

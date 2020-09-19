@@ -1,0 +1,51 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-button (click)="toggleMenu()">
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    -->
+    <ion-menu-button color="primary"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>inject</ion-title>
+    <ion-item slot="end">
+      <ion-label>Code types</ion-label>
+      <ion-select  [(ngModel)]="code" (ionChange)="onSelectChange($event)" value="Code 93" okText="Ok" cancelText="Dismiss">
+        <ion-select-option value="Code 93">Code 93</ion-select-option>
+        <ion-select-option value="Code 39">Code 39</ion-select-option>
+        <ion-select-option value="Code 39 Ext">Code 39 Ext</ion-select-option>
+        <ion-select-option value="Code 128 a">Code 128 a</ion-select-option>
+        <ion-select-option value="Code 128 b">Code 128 b</ion-select-option>
+        <ion-select-option value="Code 128 c">Code 128 c</ion-select-option>
+        <ion-select-option value="Code QR">Code QR</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<!--
+  <ion-label padding >Code 93</ion-label>
+  <ion-item padding *ngFor="let code of codes93">
+    <ion-img [src]="code.src"></ion-img>
+    <ion-label>{{code.text}}</ion-label>
+  </ion-item>
+-->
+
+
+<ion-img class="code" src="{{codesrc}}"></ion-img>
+
+
+</ion-content>
+
+<ion-footer no-shadow>
+  <ion-label class="ion-padding" >{{codelabel}}</ion-label>
+  <ion-label class="ion-padding" >{{codetext}}</ion-label>
+	<ion-toolbar position="bottom" expand="block">
+    <ion-button id="btnback" position="start"  color="primary" (click)="back()">back</ion-button>
+    <ion-button id="btnnext" position="end"  color="primary" (click)="next()">next</ion-button>
+    <ion-label> Code {{codepos + 1}} of {{codemax}}</ion-label>
+  </ion-toolbar>
+</ion-footer>

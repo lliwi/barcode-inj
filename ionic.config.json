@@ -1,0 +1,7 @@
+{
+  "name": "barcode-inj",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

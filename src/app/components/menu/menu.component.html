@@ -1,0 +1,21 @@
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item [routerLink]="['/start']" >Home
+        <ion-icon slot="start" name="home"></ion-icon>
+        </ion-item>
+        <ion-item [routerLink]="['/scan']" >Scan</ion-item>
+        <ion-item [routerLink]="['/inject']" >Inject</ion-item>
+
+      </ion-menu-toggle>
+      
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
